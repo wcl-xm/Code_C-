@@ -123,44 +123,44 @@ test/fast:
 .PHONY : test/fast
 
 #=============================================================================
-# Target rules for targets named kk
+# Target rules for targets named i
 
 # Build rule for target.
-kk: cmake_check_build_system
-	$(MAKE) -f CMakeFiles\Makefile2 kk
-.PHONY : kk
+i : cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 i
+.PHONY : i
 
 # fast build rule for target.
-kk/fast:
-	$(MAKE) -f CMakeFiles\kk.dir\build.make CMakeFiles/kk.dir/build
-.PHONY : kk/fast
+i/fast:
+	$(MAKE) -f CMakeFiles\i.dir\build.make CMakeFiles/i.dir/build
+.PHONY : i/fast
 
-kk.obj: kk.cpp.obj
+i.obj: i.cpp.obj
 
-.PHONY : kk.obj
+.PHONY : i.obj
 
 # target to build an object file
-kk.cpp.obj:
-	$(MAKE) -f CMakeFiles\kk.dir\build.make CMakeFiles/kk.dir/kk.cpp.obj
-.PHONY : kk.cpp.obj
+i.cpp.obj:
+	$(MAKE) -f CMakeFiles\i.dir\build.make CMakeFiles/i.dir/i.cpp.obj
+.PHONY : i.cpp.obj
 
-kk.i: kk.cpp.i
+i.i: i.cpp.i
 
-.PHONY : kk.i
+.PHONY : i.i
 
 # target to preprocess a source file
-kk.cpp.i:
-	$(MAKE) -f CMakeFiles\kk.dir\build.make CMakeFiles/kk.dir/kk.cpp.i
-.PHONY : kk.cpp.i
+i.cpp.i:
+	$(MAKE) -f CMakeFiles\i.dir\build.make CMakeFiles/i.dir/i.cpp.i
+.PHONY : i.cpp.i
 
-kk.s: kk.cpp.s
+i.s: i.cpp.s
 
-.PHONY : kk.s
+.PHONY : i.s
 
 # target to generate assembly for a file
-kk.cpp.s:
-	$(MAKE) -f CMakeFiles\kk.dir\build.make CMakeFiles/kk.dir/kk.cpp.s
-.PHONY : kk.cpp.s
+i.cpp.s:
+	$(MAKE) -f CMakeFiles\i.dir\build.make CMakeFiles/i.dir/i.cpp.s
+.PHONY : i.cpp.s
 
 main.obj: main.cpp.obj
 
@@ -197,11 +197,11 @@ help:
 	@echo ... depend
 	@echo ... rebuild_cache
 	@echo ... test
-	@echo ... kk
+	@echo ... i
 	@echo ... edit_cache
-	@echo ... kk.obj
-	@echo ... kk.i
-	@echo ... kk.s
+	@echo ... i.obj
+	@echo ... i.i
+	@echo ... i.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

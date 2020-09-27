@@ -53,7 +53,7 @@ CMAKE_BINARY_DIR = D:\Code_C++\test\cmake-build-debug
 
 # The main recursive "all" target.
 all: CMakeFiles/test.dir/all
-all: CMakeFiles/kk.dir/all
+all: CMakeFiles/i.dir/all
 
 .PHONY : all
 
@@ -64,7 +64,7 @@ preinstall:
 
 # The main recursive "clean" target.
 clean: CMakeFiles/test.dir/clean
-clean: CMakeFiles/kk.dir/clean
+clean: CMakeFiles/i.dir/clean
 
 .PHONY : clean
 
@@ -96,31 +96,31 @@ CMakeFiles/test.dir/clean:
 .PHONY : CMakeFiles/test.dir/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/kk.dir
+# Target rules for target CMakeFiles/i.dir
 
 # All Build rule for target.
-CMakeFiles/kk.dir/all:
-	$(MAKE) -f CMakeFiles\kk.dir\build.make CMakeFiles/kk.dir/depend
-	$(MAKE) -f CMakeFiles\kk.dir\build.make CMakeFiles/kk.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=D:\Code_C++\test\cmake-build-debug\CMakeFiles --progress-num=1,2 "Built target kk"
-.PHONY : CMakeFiles/kk.dir/all
+CMakeFiles/i.dir/all:
+	$(MAKE) -f CMakeFiles\i.dir\build.make CMakeFiles/i.dir/depend
+	$(MAKE) -f CMakeFiles\i.dir\build.make CMakeFiles/i.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=D:\Code_C++\test\cmake-build-debug\CMakeFiles --progress-num=1,2 "Built target i"
+.PHONY : CMakeFiles/i.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/kk.dir/rule: cmake_check_build_system
+CMakeFiles/i.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start D:\Code_C++\test\cmake-build-debug\CMakeFiles 2
-	$(MAKE) -f CMakeFiles\Makefile2 CMakeFiles/kk.dir/all
+	$(MAKE) -f CMakeFiles\Makefile2 CMakeFiles/i.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start D:\Code_C++\test\cmake-build-debug\CMakeFiles 0
-.PHONY : CMakeFiles/kk.dir/rule
+.PHONY : CMakeFiles/i.dir/rule
 
 # Convenience name for target.
-kk: CMakeFiles/kk.dir/rule
+i : CMakeFiles/i.dir/rule
 
-.PHONY : kk
+.PHONY : i
 
 # clean rule for target.
-CMakeFiles/kk.dir/clean:
-	$(MAKE) -f CMakeFiles\kk.dir\build.make CMakeFiles/kk.dir/clean
-.PHONY : CMakeFiles/kk.dir/clean
+CMakeFiles/i.dir/clean:
+	$(MAKE) -f CMakeFiles\i.dir\build.make CMakeFiles/i.dir/clean
+.PHONY : CMakeFiles/i.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
