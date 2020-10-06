@@ -40,7 +40,8 @@ int cmp(term a, term b)//比较多项式的项,a的指数值<b的指数值返回
     return 0;
 }
 
-int LocateElem(polynomial &p, ElemType e, int (*cmp)(term a, term b)) {
+int LocateElem(polynomial &p, ElemType e, int (*cmp)(term a, term b)) //在创建多项式时检验是否cin相同指数的项，flag=0表示不存在，flag=1为存在
+{
     int flag = 0;
     Link q = p.head->next;
     for (int i = 0; i < p.len; ++i) {
@@ -52,7 +53,7 @@ int LocateElem(polynomial &p, ElemType e, int (*cmp)(term a, term b)) {
     return flag;
 };
 
-void ListInsert_Link(polynomial &p, ElemType e) //生成新节点并插入链中
+void ListInsert_Link(polynomial &p, ElemType e) //生成新节点并插入链中,只用于创建多项式
 {
     Link s = new LNode;
     s->data.coef = e.coef;
@@ -85,19 +86,10 @@ void CreatePolyn(polynomial &p, int m)//手动创建新的链
         if (!LocateElem(p, e, cmp))//当前链表中不存在该指数项
             ListInsert_Link(p, e);//在第一个大于插入项指数的数据项前插入/新的数据项
     }
-    h.head = h.head->next;
-    float mid = h.head->data.coef;
-    for (int j = 0; j < p.len; ++j) {
-        mid = h.head->data.coef;
-        if (j < p.len && j > 0 && mid > 0)
-            cout << "+ ";
-        cout << h.head->data.coef << "X^" << h.head->data.expn << " ";
-        h.head = h.head->next;
-    }
-    cout << endl;
 }
 
-polynomial Add1(polynomial &pa, polynomial &pb) {
+polynomial Add1(polynomial &pa, polynomial &pb) //两项多项式加法，生成新的多项式并带回，原多项式不变更
+{
     Link p1 = pa.head->next;
     Link p2 = pb.head->next;
     polynomial p3 ;
@@ -108,12 +100,12 @@ polynomial Add1(polynomial &pa, polynomial &pb) {
         if (p1->data.expn == p2->data.expn) {
             sum = p1->data.coef + p2->data.coef;
             if (sum != 0) {
-                Link s = new LNode;
+                Link s = new LNode;//创建新节点
                 s->data.coef = sum;
-                s->data.expn = p1->data.expn;
-                s->next = nullptr;
-                p->next =s;
-                p=s;
+                s->data.expn = p1->data.expn;//为新节点的数据域赋值
+                s->next = nullptr;//新节点的指针域指向空
+                p->next =s;//头结点的指针域指向新节点s
+                p=s;//指针后移到s
                 p1 = p1->next;
                 p2 = p2->next;
             } else {
@@ -138,11 +130,12 @@ polynomial Add1(polynomial &pa, polynomial &pb) {
             p2 = p2->next;
         }
     }
-    p->next = p1?p1:p2;
+    p->next = p1?p1:p2;//将剩余部分的多项式整体移到新创建的链表上
     return p3;
 }
 
-void Add2(polynomial &pa, polynomial &pb){
+void Add2(polynomial &pa, polynomial &pb)//两项多项式的加法，用于实现乘法功能中中间多项式相加的功能，不生成新链表，加法过程中删除第二链表，只保留头结点
+{
     Link p1 = pa.head->next;
     Link p2 = pb.head->next;
     Link p3 = pa.head;
@@ -180,7 +173,8 @@ void Add2(polynomial &pa, polynomial &pb){
     p3->next = p1 ? p1 : p2;
 }
 
-polynomial Less(polynomial &pa, polynomial &pb) {
+polynomial Less(polynomial &pa, polynomial &pb) //两项多项式相减，仿照加法Add1
+{
     Link p1 = pa.head->next;
     Link p2 = pb.head->next;
     polynomial p3 ;
@@ -222,18 +216,15 @@ polynomial Less(polynomial &pa, polynomial &pb) {
         }
     }
     p->next = p1?p1:p2;
-    p = p3.head->next;
-    while (p) {
-        cout << p->data.coef << "X^" << p->data.expn << " ";
-        if (p->next != nullptr && p->next->data.coef > 0)
-            cout << "+ ";
-        p = p->next;
-    }
-    cout << endl;
     return p3;
 }
-
-polynomial Multiplication(polynomial &pa,polynomial &pb){
+/*
+ * 思路 ：多个中间多项式相加
+ * 设置p3为固定链表;temp为临时链表。
+ * 将第一次中间项多项式的结果赋给p3，其后每次中间多项式都赋给temp并与p3相加，temp每次在Add2中清空，最后返回p3
+ */
+polynomial Multiplication(polynomial &pa,polynomial &pb)//两项多项式乘法，生成新链表并返回
+{
     Link p1 = pa.head->next;
     Link p2 = pb.head->next;
     polynomial p3;
@@ -259,6 +250,7 @@ polynomial Multiplication(polynomial &pa,polynomial &pb){
             Add2(p3, temp);
         p1=p1->next;
     }
+    delete temp.head;
     return p3;
 }
 
@@ -279,8 +271,10 @@ int main() {
     CreatePolyn(p1, 2);
     CreatePolyn(p2, 2);
     p3 = Add1(p1, p2);
-    Show(p3);
     p4 = Multiplication(p1,p2);
+    Show(p1);
+    Show(p2);
+    Show(p3);
     Show(p4);
     return 0;
 }
