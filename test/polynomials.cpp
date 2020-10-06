@@ -52,7 +52,8 @@ int LocateElem(polynomial &p, ElemType e, int (*cmp)(term a, term b)) {
     return flag;
 };
 
-void ListInsert_Link(polynomial &p, ElemType e) {
+void ListInsert_Link(polynomial &p, ElemType e) //生成新节点并插入链中
+{
     Link s = new LNode;
     s->data.coef = e.coef;
     s->data.expn = e.expn;
@@ -67,7 +68,8 @@ void ListInsert_Link(polynomial &p, ElemType e) {
     p.len++;
 }
 
-void CreatePolyn(polynomial &p, int m) {
+void CreatePolyn(polynomial &p, int m)//手动创建新的链
+{
     polynomial h;
     ElemType e;
     //输入m项的系数和指数，建立表示一元多项式的有序链表P
@@ -95,12 +97,55 @@ void CreatePolyn(polynomial &p, int m) {
     cout << endl;
 }
 
+polynomial Add1(polynomial &pa, polynomial &pb) {
+    Link p1 = pa.head->next;
+    Link p2 = pb.head->next;
+    polynomial p3 ;
+    float sum;
+    InitList(p3);
+    Link p = p3.head;
+    while (p2 && p1) {
+        if (p1->data.expn == p2->data.expn) {
+            sum = p1->data.coef + p2->data.coef;
+            if (sum != 0) {
+                Link s = new LNode;
+                s->data.coef = sum;
+                s->data.expn = p1->data.expn;
+                s->next = nullptr;
+                p->next =s;
+                p=s;
+                p1 = p1->next;
+                p2 = p2->next;
+            } else {
+                p1 = p1->next;
+                p2 = p2->next;
+            }
+        } else if (p1->data.expn < p2->data.expn) {
+            Link s = new LNode;
+            s->data.expn = p1->data.expn;
+            s->data.coef = p1->data.coef;
+            s->next = nullptr;
+            p->next =s;
+            p=s;
+            p1 = p1->next;
+        } else {
+            Link s = new LNode;
+            s->data.expn = p2->data.expn;
+            s->data.coef = p2->data.coef;
+            s->next = nullptr;
+            p->next =s;
+            p=s;
+            p2 = p2->next;
+        }
+    }
+    p->next = p1?p1:p2;
+    return p3;
+}
 
-void Add_Less(polynomial &pa, polynomial &pb) {
+void Add2(polynomial &pa, polynomial &pb){
     Link p1 = pa.head->next;
     Link p2 = pb.head->next;
     Link p3 = pa.head;
-    Link p = p3->next;;
     Link temp;
     float sum;
     while (p2 && p1) {
@@ -133,8 +178,93 @@ void Add_Less(polynomial &pa, polynomial &pb) {
         }
     }
     p3->next = p1 ? p1 : p2;
-    delete pb.head;
+}
 
+polynomial Less(polynomial &pa, polynomial &pb) {
+    Link p1 = pa.head->next;
+    Link p2 = pb.head->next;
+    polynomial p3 ;
+    float sum;
+    InitList(p3);
+    Link p = p3.head;
+    while (p2 && p1) {
+        if (p1->data.expn == p2->data.expn) {
+            sum = p1->data.coef - p2->data.coef;
+            if (sum != 0) {
+                Link s = new LNode;
+                s->data.coef = sum;
+                s->data.expn = p1->data.expn;
+                s->next = nullptr;
+                p->next =s;
+                p=s;
+                p1 = p1->next;
+                p2 = p2->next;
+            } else {
+                p1 = p1->next;
+                p2 = p2->next;
+            }
+        } else if (p1->data.expn < p2->data.expn) {
+            Link s = new LNode;
+            s->data.expn = p1->data.expn;
+            s->data.coef = p1->data.coef;
+            s->next = nullptr;
+            p->next =s;
+            p=s;
+            p1 = p1->next;
+        } else {
+            Link s = new LNode;
+            s->data.expn = p2->data.expn;
+            s->data.coef = p2->data.coef;
+            s->next = nullptr;
+            p->next =s;
+            p=s;
+            p2 = p2->next;
+        }
+    }
+    p->next = p1?p1:p2;
+    p = p3.head->next;
+    while (p) {
+        cout << p->data.coef << "X^" << p->data.expn << " ";
+        if (p->next != nullptr && p->next->data.coef > 0)
+            cout << "+ ";
+        p = p->next;
+    }
+    cout << endl;
+    return p3;
+}
+
+polynomial Multiplication(polynomial &pa,polynomial &pb){
+    Link p1 = pa.head->next;
+    Link p2 = pb.head->next;
+    polynomial p3;
+    polynomial temp;
+    int count = 0;
+    InitList(p3);
+    InitList(temp);
+    Link p = p3.head;
+    while (p1) {
+        while (p2){
+            Link s = new LNode;
+            s->data.coef = p1->data.coef*p2->data.coef;
+            s->data.expn = p1->data.expn+p2->data.expn;
+            s->next = nullptr;
+            p->next = s;
+            p=s;
+            p2 = p2->next;
+        }
+        p2 = pb.head->next;
+        count++;
+        p = temp.head;
+        if (count>1)
+            Add2(p3, temp);
+        p1=p1->next;
+    }
+    return p3;
+}
+
+void Show(polynomial pt)
+{
+    Link p = pt.head->next;
     while (p) {
         cout << p->data.coef << "X^" << p->data.expn << " ";
         if (p->next != nullptr && p->next->data.coef > 0)
@@ -144,12 +274,14 @@ void Add_Less(polynomial &pa, polynomial &pb) {
     cout << endl;
 }
 
-
 int main() {
-    polynomial p1, p2;
-    CreatePolyn(p1, 3);
+    polynomial p1, p2,p3,p4;
+    CreatePolyn(p1, 2);
     CreatePolyn(p2, 2);
-    Add_Less(p1, p2);
+    p3 = Add1(p1, p2);
+    Show(p3);
+    p4 = Multiplication(p1,p2);
+    Show(p4);
     return 0;
 }
 
