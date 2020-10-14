@@ -2,3 +2,5 @@ D:/Code_C++/test/cmake-build-debug/CMakeFiles/rebuild_cache.dir
 D:/Code_C++/test/cmake-build-debug/CMakeFiles/test.dir
 D:/Code_C++/test/cmake-build-debug/CMakeFiles/i.dir
 D:/Code_C++/test/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/Code_C++/test/cmake-build-debug/CMakeFiles/polynomials.dir
+D:/Code_C++/test/cmake-build-debug/CMakeFiles/polynomials1.dir

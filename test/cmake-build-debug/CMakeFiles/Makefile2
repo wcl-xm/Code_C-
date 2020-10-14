@@ -54,6 +54,8 @@ CMAKE_BINARY_DIR = D:\Code_C++\test\cmake-build-debug
 # The main recursive "all" target.
 all: CMakeFiles/test.dir/all
 all: CMakeFiles/i.dir/all
+all: CMakeFiles/polynomials.dir/all
+all: CMakeFiles/polynomials1.dir/all
 
 .PHONY : all
 
@@ -65,6 +67,8 @@ preinstall:
 # The main recursive "clean" target.
 clean: CMakeFiles/test.dir/clean
 clean: CMakeFiles/i.dir/clean
+clean: CMakeFiles/polynomials.dir/clean
+clean: CMakeFiles/polynomials1.dir/clean
 
 .PHONY : clean
 
@@ -75,7 +79,7 @@ clean: CMakeFiles/i.dir/clean
 CMakeFiles/test.dir/all:
 	$(MAKE) -f CMakeFiles\test.dir\build.make CMakeFiles/test.dir/depend
 	$(MAKE) -f CMakeFiles\test.dir\build.make CMakeFiles/test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=D:\Code_C++\test\cmake-build-debug\CMakeFiles --progress-num=3,4 "Built target test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=D:\Code_C++\test\cmake-build-debug\CMakeFiles --progress-num=7,8 "Built target test"
 .PHONY : CMakeFiles/test.dir/all
 
 # Build rule for subdir invocation for target.
@@ -121,6 +125,60 @@ i : CMakeFiles/i.dir/rule
 CMakeFiles/i.dir/clean:
 	$(MAKE) -f CMakeFiles\i.dir\build.make CMakeFiles/i.dir/clean
 .PHONY : CMakeFiles/i.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/polynomials.dir
+
+# All Build rule for target.
+CMakeFiles/polynomials.dir/all:
+	$(MAKE) -f CMakeFiles\polynomials.dir\build.make CMakeFiles/polynomials.dir/depend
+	$(MAKE) -f CMakeFiles\polynomials.dir\build.make CMakeFiles/polynomials.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=D:\Code_C++\test\cmake-build-debug\CMakeFiles --progress-num=3,4 "Built target polynomials"
+.PHONY : CMakeFiles/polynomials.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/polynomials.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\Code_C++\test\cmake-build-debug\CMakeFiles 2
+	$(MAKE) -f CMakeFiles\Makefile2 CMakeFiles/polynomials.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\Code_C++\test\cmake-build-debug\CMakeFiles 0
+.PHONY : CMakeFiles/polynomials.dir/rule
+
+# Convenience name for target.
+polynomials: CMakeFiles/polynomials.dir/rule
+
+.PHONY : polynomials
+
+# clean rule for target.
+CMakeFiles/polynomials.dir/clean:
+	$(MAKE) -f CMakeFiles\polynomials.dir\build.make CMakeFiles/polynomials.dir/clean
+.PHONY : CMakeFiles/polynomials.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/polynomials1.dir
+
+# All Build rule for target.
+CMakeFiles/polynomials1.dir/all:
+	$(MAKE) -f CMakeFiles\polynomials1.dir\build.make CMakeFiles/polynomials1.dir/depend
+	$(MAKE) -f CMakeFiles\polynomials1.dir\build.make CMakeFiles/polynomials1.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=D:\Code_C++\test\cmake-build-debug\CMakeFiles --progress-num=5,6 "Built target polynomials1"
+.PHONY : CMakeFiles/polynomials1.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/polynomials1.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\Code_C++\test\cmake-build-debug\CMakeFiles 2
+	$(MAKE) -f CMakeFiles\Makefile2 CMakeFiles/polynomials1.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start D:\Code_C++\test\cmake-build-debug\CMakeFiles 0
+.PHONY : CMakeFiles/polynomials1.dir/rule
+
+# Convenience name for target.
+polynomials1: CMakeFiles/polynomials1.dir/rule
+
+.PHONY : polynomials1
+
+# clean rule for target.
+CMakeFiles/polynomials1.dir/clean:
+	$(MAKE) -f CMakeFiles\polynomials1.dir\build.make CMakeFiles/polynomials1.dir/clean
+.PHONY : CMakeFiles/polynomials1.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

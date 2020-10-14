@@ -135,6 +135,32 @@ i/fast:
 	$(MAKE) -f CMakeFiles\i.dir\build.make CMakeFiles/i.dir/build
 .PHONY : i/fast
 
+#=============================================================================
+# Target rules for targets named polynomials
+
+# Build rule for target.
+polynomials: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 polynomials
+.PHONY : polynomials
+
+# fast build rule for target.
+polynomials/fast:
+	$(MAKE) -f CMakeFiles\polynomials.dir\build.make CMakeFiles/polynomials.dir/build
+.PHONY : polynomials/fast
+
+#=============================================================================
+# Target rules for targets named polynomials1
+
+# Build rule for target.
+polynomials1: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 polynomials1
+.PHONY : polynomials1
+
+# fast build rule for target.
+polynomials1/fast:
+	$(MAKE) -f CMakeFiles\polynomials1.dir\build.make CMakeFiles/polynomials1.dir/build
+.PHONY : polynomials1/fast
+
 i.obj: i.cpp.obj
 
 .PHONY : i.obj
@@ -189,6 +215,60 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles\test.dir\build.make CMakeFiles/test.dir/main.cpp.s
 .PHONY : main.cpp.s
 
+polynomials.obj: polynomials.cpp.obj
+
+.PHONY : polynomials.obj
+
+# target to build an object file
+polynomials.cpp.obj:
+	$(MAKE) -f CMakeFiles\polynomials.dir\build.make CMakeFiles/polynomials.dir/polynomials.cpp.obj
+.PHONY : polynomials.cpp.obj
+
+polynomials.i: polynomials.cpp.i
+
+.PHONY : polynomials.i
+
+# target to preprocess a source file
+polynomials.cpp.i:
+	$(MAKE) -f CMakeFiles\polynomials.dir\build.make CMakeFiles/polynomials.dir/polynomials.cpp.i
+.PHONY : polynomials.cpp.i
+
+polynomials.s: polynomials.cpp.s
+
+.PHONY : polynomials.s
+
+# target to generate assembly for a file
+polynomials.cpp.s:
+	$(MAKE) -f CMakeFiles\polynomials.dir\build.make CMakeFiles/polynomials.dir/polynomials.cpp.s
+.PHONY : polynomials.cpp.s
+
+polynomials1.obj: polynomials1.cpp.obj
+
+.PHONY : polynomials1.obj
+
+# target to build an object file
+polynomials1.cpp.obj:
+	$(MAKE) -f CMakeFiles\polynomials1.dir\build.make CMakeFiles/polynomials1.dir/polynomials1.cpp.obj
+.PHONY : polynomials1.cpp.obj
+
+polynomials1.i: polynomials1.cpp.i
+
+.PHONY : polynomials1.i
+
+# target to preprocess a source file
+polynomials1.cpp.i:
+	$(MAKE) -f CMakeFiles\polynomials1.dir\build.make CMakeFiles/polynomials1.dir/polynomials1.cpp.i
+.PHONY : polynomials1.cpp.i
+
+polynomials1.s: polynomials1.cpp.s
+
+.PHONY : polynomials1.s
+
+# target to generate assembly for a file
+polynomials1.cpp.s:
+	$(MAKE) -f CMakeFiles\polynomials1.dir\build.make CMakeFiles/polynomials1.dir/polynomials1.cpp.s
+.PHONY : polynomials1.cpp.s
+
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -199,12 +279,20 @@ help:
 	@echo ... test
 	@echo ... i
 	@echo ... edit_cache
+	@echo ... polynomials
+	@echo ... polynomials1
 	@echo ... i.obj
 	@echo ... i.i
 	@echo ... i.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
+	@echo ... polynomials.obj
+	@echo ... polynomials.i
+	@echo ... polynomials.s
+	@echo ... polynomials1.obj
+	@echo ... polynomials1.i
+	@echo ... polynomials1.s
 .PHONY : help
 
 

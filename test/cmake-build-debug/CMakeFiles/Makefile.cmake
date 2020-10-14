@@ -55,4 +55,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/test.dir/DependInfo.cmake"
   "CMakeFiles/i.dir/DependInfo.cmake"
+  "CMakeFiles/polynomials.dir/DependInfo.cmake"
+  "CMakeFiles/polynomials1.dir/DependInfo.cmake"
   )

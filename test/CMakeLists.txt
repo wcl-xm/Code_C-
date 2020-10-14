@@ -5,3 +5,6 @@ set(CMAKE_CXX_STANDARD 14)
 
 add_executable(test main.cpp)
 add_executable(i i.cpp)
+
+add_executable(polynomials polynomials.cpp)
+add_executable(polynomials1 polynomials1.cpp)

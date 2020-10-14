@@ -88,11 +88,11 @@ void CreatePolyn(polynomial &p, int m)//手动创建新的链
     }
 }
 
-polynomial Add1(polynomial &pa, polynomial &pb) //两项多项式加法，生成新的多项式并带回，原多项式不变更
+polynomial Add1(polynomial pa, polynomial pb) //两项多项式加法，生成新的多项式并带回，原多项式不变更
 {
     Link p1 = pa.head->next;
     Link p2 = pb.head->next;
-    polynomial p3 ;
+    polynomial p3;
     float sum;
     InitList(p3);
     Link p = p3.head;
@@ -104,8 +104,8 @@ polynomial Add1(polynomial &pa, polynomial &pb) //两项多项式加法，生成
                 s->data.coef = sum;
                 s->data.expn = p1->data.expn;//为新节点的数据域赋值
                 s->next = nullptr;//新节点的指针域指向空
-                p->next =s;//头结点的指针域指向新节点s
-                p=s;//指针后移到s
+                p->next = s;//头结点的指针域指向新节点s
+                p = s;//指针后移到s
                 p1 = p1->next;
                 p2 = p2->next;
             } else {
@@ -117,20 +117,20 @@ polynomial Add1(polynomial &pa, polynomial &pb) //两项多项式加法，生成
             s->data.expn = p1->data.expn;
             s->data.coef = p1->data.coef;
             s->next = nullptr;
-            p->next =s;
-            p=s;
+            p->next = s;
+            p = s;
             p1 = p1->next;
         } else {
             Link s = new LNode;
             s->data.expn = p2->data.expn;
             s->data.coef = p2->data.coef;
             s->next = nullptr;
-            p->next =s;
-            p=s;
+            p->next = s;
+            p = s;
             p2 = p2->next;
         }
     }
-    p->next = p1?p1:p2;//将剩余部分的多项式整体移到新创建的链表上
+    p->next = p1 ? p1 : p2;//将剩余部分的多项式整体移到新创建的链表上
     return p3;
 }
 
@@ -173,11 +173,11 @@ void Add2(polynomial &pa, polynomial &pb)//两项多项式的加法，用于实�
     p3->next = p1 ? p1 : p2;
 }
 
-polynomial Less(polynomial &pa, polynomial &pb) //两项多项式相减，仿照加法Add1
+polynomial Less(polynomial pa, polynomial pb) //两项多项式相减，仿照加法Add1
 {
     Link p1 = pa.head->next;
     Link p2 = pb.head->next;
-    polynomial p3 ;
+    polynomial p3;
     float sum;
     InitList(p3);
     Link p = p3.head;
@@ -189,8 +189,8 @@ polynomial Less(polynomial &pa, polynomial &pb) //两项多项式相减，仿照
                 s->data.coef = sum;
                 s->data.expn = p1->data.expn;
                 s->next = nullptr;
-                p->next =s;
-                p=s;
+                p->next = s;
+                p = s;
                 p1 = p1->next;
                 p2 = p2->next;
             } else {
@@ -202,28 +202,40 @@ polynomial Less(polynomial &pa, polynomial &pb) //两项多项式相减，仿照
             s->data.expn = p1->data.expn;
             s->data.coef = p1->data.coef;
             s->next = nullptr;
-            p->next =s;
-            p=s;
+            p->next = s;
+            p = s;
             p1 = p1->next;
         } else {
             Link s = new LNode;
             s->data.expn = p2->data.expn;
             s->data.coef = p2->data.coef;
             s->next = nullptr;
-            p->next =s;
-            p=s;
+            p->next = s;
+            p = s;
             p2 = p2->next;
         }
     }
-    p->next = p1?p1:p2;
+    if (p2 != nullptr)
+        while (p2) {
+            Link s = new LNode;
+            s->data.expn = p2->data.expn;
+            s->data.coef = -p2->data.coef;
+            s->next = nullptr;
+            p->next = s;
+            p = s;
+            p2 = p2->next;
+        }
+    else
+        p->next = p1;
     return p3;
 }
+
 /*
  * 思路 ：多个中间多项式相加
  * 设置p3为固定链表;temp为临时链表。
  * 将第一次中间项多项式的结果赋给p3，其后每次中间多项式都赋给temp并与p3相加，temp每次在Add2中清空，最后返回p3
  */
-polynomial Multiplication(polynomial &pa,polynomial &pb)//两项多项式乘法，生成新链表并返回
+polynomial Multiplication(polynomial &pa, polynomial &pb)//两项多项式乘法，生成新链表并返回
 {
     Link p1 = pa.head->next;
     Link p2 = pb.head->next;
@@ -233,29 +245,38 @@ polynomial Multiplication(polynomial &pa,polynomial &pb)//两项多项式乘法�
     InitList(p3);
     InitList(temp);
     Link p = p3.head;
-    while (p1) {
-        while (p2){
+    while (p1)
+    {
+        while (p2)
+        {
             Link s = new LNode;
-            s->data.coef = p1->data.coef*p2->data.coef;
-            s->data.expn = p1->data.expn+p2->data.expn;
+            s->data.coef = p1->data.coef * p2->data.coef;
+            s->data.expn = p1->data.expn + p2->data.expn;
             s->next = nullptr;
             p->next = s;
-            p=s;
+            p = s;
             p2 = p2->next;
         }
         p2 = pb.head->next;
         count++;
         p = temp.head;
-        if (count>1)
+        if (count > 1)
             Add2(p3, temp);
-        p1=p1->next;
+        p1 = p1->next;
     }
     delete temp.head;
     return p3;
 }
 
-void Show(polynomial pt)
-{
+/*
+ * 这除法是啥玩意啊，，，，，，，
+ */
+polynomial Division(polynomial &pa, polynomial &pb) {
+    polynomial p;
+    return p;
+}
+
+void Show(polynomial pt) {
     Link p = pt.head->next;
     while (p) {
         cout << p->data.coef << "X^" << p->data.expn << " ";
@@ -267,15 +288,17 @@ void Show(polynomial pt)
 }
 
 int main() {
-    polynomial p1, p2,p3,p4;
+    polynomial p1, p2, p3, p4, p5;
     CreatePolyn(p1, 2);
     CreatePolyn(p2, 2);
     p3 = Add1(p1, p2);
-    p4 = Multiplication(p1,p2);
+    p4 = Less(p1, p2);
+    p5 = Multiplication(p1, p2);
     Show(p1);
     Show(p2);
     Show(p3);
     Show(p4);
+    Show(p5);
     return 0;
 }
 
