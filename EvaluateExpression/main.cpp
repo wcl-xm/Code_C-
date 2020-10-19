@@ -98,7 +98,6 @@ Status1 GetTop_OPTR(OPTR &optr, char &op) {
 }
 
 Status2 Precede(char a, char b) {
-
     char aPriorTable[6][6] = {// +-*/()
             {'>', '>', '<', '<', '<', '>'},
             {'>', '>', '<', '<', '<', '>'},
@@ -134,7 +133,6 @@ Status3 calc(double a, char theta, double b) {
         default:
             cout << "表达式错误" << endl;
             exit(0);
-
     }
     return value;
 }
@@ -196,7 +194,6 @@ Status1 Parse(char expr[]) {
     Pop_OPND(opnd, value);
     return value;
 }
-
 
 int main() {
     char expr[256] = {0};
