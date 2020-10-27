@@ -1,6 +1,8 @@
+/*
+ *坑爹程序一堆错，抄书不如自己做
+ */
 #include <iostream>
 #include <cstdlib>
-
 using namespace std;
 #define OK 1
 #define ERROR -1
@@ -201,7 +203,5 @@ int main() {
     cin >> expr;
     cout << "结果：" << Parse(expr) << endl;
     return OK;
+
 }
-/*
- *坑爹程序一堆错，抄书不如自己做
- */
