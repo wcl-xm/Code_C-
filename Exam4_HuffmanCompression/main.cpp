@@ -27,7 +27,7 @@ void InitHead(HeadFile &Hd,int n) {
         Hd.weight[i]=0;
     cout << "请输入文件所在的绝对路径：" << endl;
     cin>>filename;
-    int ch=0;
+    int ch;
     FILE *file = fopen(filename, "rb");
     if (!file) {
         cout << "Could not find the file\n";
@@ -109,7 +109,7 @@ void Compress(HuffmanCode HC,HeadFile Hd)
     strcat(compress_filename,".hfm");
     file = fopen(filename, "rb");
     fin = fopen(compress_filename,"wb");
-    fwrite(&Hd,sizeof(HeadFile),1,fin);
+//    fwrite(&Hd,sizeof(HeadFile),1,fin);
     while ((ch=fgetc(file))!=EOF)
     {
         if (ch==0)//0单元未用
@@ -232,14 +232,14 @@ int main() {
     strcat(filename,".hfm");
     f2 = GetFileSize(filename);
     percent = f2/f1*100;
-//    cout<<"哈夫曼树:"<<endl;
-//    for (int j = 1; j <=2*N-1 ; ++j) {
-//        cout<<j<<" "<<HT[j].weight<<" "<<HT[j].parents<<" "<<HT[j].lchild<<" "<<HT[j].rchild<<endl;
-//    }
-//    cout<<"哈夫曼编码:"<<endl;
-//    for (int i = 1; i <= N; ++i) {
-//        cout<<i<<" "<<HC[i]<<endl;
-//    }
+    cout<<"哈夫曼树:"<<endl;
+    for (int j = 1; j <=2*N-1 ; ++j) {
+        cout<<j<<" "<<HT[j].weight<<" "<<HT[j].parents<<" "<<HT[j].lchild<<" "<<HT[j].rchild<<endl;
+    }
+    cout<<"哈夫曼编码:"<<endl;
+    for (int i = 1; i <= N; ++i) {
+        cout<<i<<" "<<HC[i]<<endl;
+    }
     cout<<"源文件大小："<<f1<<endl;
     cout<<"新文件大小："<<f2<<endl;
     cout<<"压缩率 ："<<percent<<"%"<<endl;
