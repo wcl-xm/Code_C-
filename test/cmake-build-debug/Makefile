@@ -110,6 +110,32 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named sqlist
+
+# Build rule for target.
+sqlist: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 sqlist
+.PHONY : sqlist
+
+# fast build rule for target.
+sqlist/fast:
+	$(MAKE) -f CMakeFiles\sqlist.dir\build.make CMakeFiles/sqlist.dir/build
+.PHONY : sqlist/fast
+
+#=============================================================================
+# Target rules for targets named Chain_stack
+
+# Build rule for target.
+Chain_stack: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 Chain_stack
+.PHONY : Chain_stack
+
+# fast build rule for target.
+Chain_stack/fast:
+	$(MAKE) -f CMakeFiles\Chain_stack.dir\build.make CMakeFiles/Chain_stack.dir/build
+.PHONY : Chain_stack/fast
+
+#=============================================================================
 # Target rules for targets named test
 
 # Build rule for target.
@@ -136,6 +162,19 @@ i/fast:
 .PHONY : i/fast
 
 #=============================================================================
+# Target rules for targets named queue
+
+# Build rule for target.
+queue: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 queue
+.PHONY : queue
+
+# fast build rule for target.
+queue/fast:
+	$(MAKE) -f CMakeFiles\queue.dir\build.make CMakeFiles/queue.dir/build
+.PHONY : queue/fast
+
+#=============================================================================
 # Target rules for targets named polynomials
 
 # Build rule for target.
@@ -149,17 +188,71 @@ polynomials/fast:
 .PHONY : polynomials/fast
 
 #=============================================================================
-# Target rules for targets named polynomials1
+# Target rules for targets named hffuman
 
 # Build rule for target.
-polynomials1: cmake_check_build_system
-	$(MAKE) -f CMakeFiles\Makefile2 polynomials1
-.PHONY : polynomials1
+hffuman: cmake_check_build_system
+	$(MAKE) -f CMakeFiles\Makefile2 hffuman
+.PHONY : hffuman
 
 # fast build rule for target.
-polynomials1/fast:
-	$(MAKE) -f CMakeFiles\polynomials1.dir\build.make CMakeFiles/polynomials1.dir/build
-.PHONY : polynomials1/fast
+hffuman/fast:
+	$(MAKE) -f CMakeFiles\hffuman.dir\build.make CMakeFiles/hffuman.dir/build
+.PHONY : hffuman/fast
+
+Chain_stack.obj: Chain_stack.cpp.obj
+
+.PHONY : Chain_stack.obj
+
+# target to build an object file
+Chain_stack.cpp.obj:
+	$(MAKE) -f CMakeFiles\Chain_stack.dir\build.make CMakeFiles/Chain_stack.dir/Chain_stack.cpp.obj
+.PHONY : Chain_stack.cpp.obj
+
+Chain_stack.i: Chain_stack.cpp.i
+
+.PHONY : Chain_stack.i
+
+# target to preprocess a source file
+Chain_stack.cpp.i:
+	$(MAKE) -f CMakeFiles\Chain_stack.dir\build.make CMakeFiles/Chain_stack.dir/Chain_stack.cpp.i
+.PHONY : Chain_stack.cpp.i
+
+Chain_stack.s: Chain_stack.cpp.s
+
+.PHONY : Chain_stack.s
+
+# target to generate assembly for a file
+Chain_stack.cpp.s:
+	$(MAKE) -f CMakeFiles\Chain_stack.dir\build.make CMakeFiles/Chain_stack.dir/Chain_stack.cpp.s
+.PHONY : Chain_stack.cpp.s
+
+hffuman.obj: hffuman.cpp.obj
+
+.PHONY : hffuman.obj
+
+# target to build an object file
+hffuman.cpp.obj:
+	$(MAKE) -f CMakeFiles\hffuman.dir\build.make CMakeFiles/hffuman.dir/hffuman.cpp.obj
+.PHONY : hffuman.cpp.obj
+
+hffuman.i: hffuman.cpp.i
+
+.PHONY : hffuman.i
+
+# target to preprocess a source file
+hffuman.cpp.i:
+	$(MAKE) -f CMakeFiles\hffuman.dir\build.make CMakeFiles/hffuman.dir/hffuman.cpp.i
+.PHONY : hffuman.cpp.i
+
+hffuman.s: hffuman.cpp.s
+
+.PHONY : hffuman.s
+
+# target to generate assembly for a file
+hffuman.cpp.s:
+	$(MAKE) -f CMakeFiles\hffuman.dir\build.make CMakeFiles/hffuman.dir/hffuman.cpp.s
+.PHONY : hffuman.cpp.s
 
 i.obj: i.cpp.obj
 
@@ -242,32 +335,59 @@ polynomials.cpp.s:
 	$(MAKE) -f CMakeFiles\polynomials.dir\build.make CMakeFiles/polynomials.dir/polynomials.cpp.s
 .PHONY : polynomials.cpp.s
 
-polynomials1.obj: polynomials1.cpp.obj
+queue.obj: queue.cpp.obj
 
-.PHONY : polynomials1.obj
+.PHONY : queue.obj
 
 # target to build an object file
-polynomials1.cpp.obj:
-	$(MAKE) -f CMakeFiles\polynomials1.dir\build.make CMakeFiles/polynomials1.dir/polynomials1.cpp.obj
-.PHONY : polynomials1.cpp.obj
+queue.cpp.obj:
+	$(MAKE) -f CMakeFiles\queue.dir\build.make CMakeFiles/queue.dir/queue.cpp.obj
+.PHONY : queue.cpp.obj
 
-polynomials1.i: polynomials1.cpp.i
+queue.i: queue.cpp.i
 
-.PHONY : polynomials1.i
+.PHONY : queue.i
 
 # target to preprocess a source file
-polynomials1.cpp.i:
-	$(MAKE) -f CMakeFiles\polynomials1.dir\build.make CMakeFiles/polynomials1.dir/polynomials1.cpp.i
-.PHONY : polynomials1.cpp.i
+queue.cpp.i:
+	$(MAKE) -f CMakeFiles\queue.dir\build.make CMakeFiles/queue.dir/queue.cpp.i
+.PHONY : queue.cpp.i
 
-polynomials1.s: polynomials1.cpp.s
+queue.s: queue.cpp.s
 
-.PHONY : polynomials1.s
+.PHONY : queue.s
 
 # target to generate assembly for a file
-polynomials1.cpp.s:
-	$(MAKE) -f CMakeFiles\polynomials1.dir\build.make CMakeFiles/polynomials1.dir/polynomials1.cpp.s
-.PHONY : polynomials1.cpp.s
+queue.cpp.s:
+	$(MAKE) -f CMakeFiles\queue.dir\build.make CMakeFiles/queue.dir/queue.cpp.s
+.PHONY : queue.cpp.s
+
+sqlist.obj: sqlist.cpp.obj
+
+.PHONY : sqlist.obj
+
+# target to build an object file
+sqlist.cpp.obj:
+	$(MAKE) -f CMakeFiles\sqlist.dir\build.make CMakeFiles/sqlist.dir/sqlist.cpp.obj
+.PHONY : sqlist.cpp.obj
+
+sqlist.i: sqlist.cpp.i
+
+.PHONY : sqlist.i
+
+# target to preprocess a source file
+sqlist.cpp.i:
+	$(MAKE) -f CMakeFiles\sqlist.dir\build.make CMakeFiles/sqlist.dir/sqlist.cpp.i
+.PHONY : sqlist.cpp.i
+
+sqlist.s: sqlist.cpp.s
+
+.PHONY : sqlist.s
+
+# target to generate assembly for a file
+sqlist.cpp.s:
+	$(MAKE) -f CMakeFiles\sqlist.dir\build.make CMakeFiles/sqlist.dir/sqlist.cpp.s
+.PHONY : sqlist.cpp.s
 
 # Help Target
 help:
@@ -275,12 +395,21 @@ help:
 	@echo ... all (the default if no target is provided)
 	@echo ... clean
 	@echo ... depend
+	@echo ... sqlist
 	@echo ... rebuild_cache
+	@echo ... Chain_stack
 	@echo ... test
 	@echo ... i
 	@echo ... edit_cache
+	@echo ... queue
 	@echo ... polynomials
-	@echo ... polynomials1
+	@echo ... hffuman
+	@echo ... Chain_stack.obj
+	@echo ... Chain_stack.i
+	@echo ... Chain_stack.s
+	@echo ... hffuman.obj
+	@echo ... hffuman.i
+	@echo ... hffuman.s
 	@echo ... i.obj
 	@echo ... i.i
 	@echo ... i.s
@@ -290,9 +419,12 @@ help:
 	@echo ... polynomials.obj
 	@echo ... polynomials.i
 	@echo ... polynomials.s
-	@echo ... polynomials1.obj
-	@echo ... polynomials1.i
-	@echo ... polynomials1.s
+	@echo ... queue.obj
+	@echo ... queue.i
+	@echo ... queue.s
+	@echo ... sqlist.obj
+	@echo ... sqlist.i
+	@echo ... sqlist.s
 .PHONY : help
 
 

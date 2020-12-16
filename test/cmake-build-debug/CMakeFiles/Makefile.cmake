@@ -53,8 +53,11 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
+  "CMakeFiles/sqlist.dir/DependInfo.cmake"
+  "CMakeFiles/Chain_stack.dir/DependInfo.cmake"
   "CMakeFiles/test.dir/DependInfo.cmake"
   "CMakeFiles/i.dir/DependInfo.cmake"
+  "CMakeFiles/queue.dir/DependInfo.cmake"
   "CMakeFiles/polynomials.dir/DependInfo.cmake"
-  "CMakeFiles/polynomials1.dir/DependInfo.cmake"
+  "CMakeFiles/hffuman.dir/DependInfo.cmake"
   )
